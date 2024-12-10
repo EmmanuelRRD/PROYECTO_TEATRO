@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class DAO {
     
-    public boolean busquedas(String comando,Connection conn) {
+    public boolean busquedas(String comando,Connection conn,String[] columnas) {
         String query = comando;
 
         try (PreparedStatement pstmt = conn.prepareStatement(query);

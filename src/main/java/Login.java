@@ -25,8 +25,10 @@ public class Login extends javax.swing.JFrame {
         setTitle("LOGIN");
         setBackground(new java.awt.Color(51, 51, 255));
         setBounds(new java.awt.Rectangle(0, 0, 200, 200));
+        setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(20, 20));
         setName("Login"); // NOI18N
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
@@ -40,7 +42,7 @@ public class Login extends javax.swing.JFrame {
 
         txtContraseña.setText("Contraseña");
 
-        cajaCorreo.setText("admin");
+        cajaCorreo.setText("usuario_tesorero");
         cajaCorreo.setToolTipText("example@gmail.com");
         cajaCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,7 +74,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        cajaContrasenia.setText("admin");
+        cajaContrasenia.setText("12345");
         cajaContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cajaContraseniaActionPerformed(evt);
@@ -83,10 +85,6 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(279, 279, 279))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -106,6 +104,10 @@ public class Login extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(crearUsuario)))
                 .addContainerGap(156, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(279, 279, 279))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,8 +157,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Conexion con = new Conexion();
         String contra = new String(cajaContrasenia.getPassword());
-        Connection conn = null;
-        conn = con.conectar(cajaCorreo.getText(),contra);
+        Connection conn = con.conectar(cajaCorreo.getText(),contra);
         
         if(conn != null){
             UserUI newUi = new UserUI();
