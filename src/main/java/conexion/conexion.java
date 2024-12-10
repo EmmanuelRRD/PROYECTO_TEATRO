@@ -8,19 +8,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 
-public class conexion {
-    Connection conn = null;
+public class Conexion {
+    public Connection conn = null;
     String url = "jdbc:postgresql://localhost:5432/teatro";
-    String user = "postgres";
-    String contrasenia = "PassEmmanuel";
     
-    public void conectar(){
+    public Connection conectar(String user,String clave){
         try {
             Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection(url,user,contrasenia);
+            conn = DriverManager.getConnection(url,user,clave);
             System.out.println("Conectado Correctamente");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Conexion exitosa"+e,"conexion",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Conexion fallida: "+e,"conexión",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e);
         }
+        
+        return  conn;
     }
 }

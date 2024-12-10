@@ -14,9 +14,6 @@ public class user {
     private String name;
     private String tipeUser;
     private ArrayList<listaTablas> listaTable;
-    
-    
-    
 }
 
 class listaTablas{

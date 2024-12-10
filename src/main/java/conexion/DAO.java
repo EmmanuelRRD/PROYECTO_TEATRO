@@ -2,21 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package userDAO;
+package conexion;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author dell
- */
-public class comandUser {
+public class DAO {
     
-    public static boolean busquedas(Connection conn, String comando){
-        String query = "SELECT id_usuario, nombre, email FROM usuarios";
+    public boolean busquedas(String comando,Connection conn) {
+        String query = comando;
 
         try (PreparedStatement pstmt = conn.prepareStatement(query);
              ResultSet rs = pstmt.executeQuery()) {
@@ -34,8 +30,7 @@ public class comandUser {
             System.out.println("Error al ejecutar la consulta");
             e.printStackTrace();
         }
-        
-        
+
         return true;
     }
     
